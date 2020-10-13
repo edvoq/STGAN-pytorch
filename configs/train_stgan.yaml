@@ -2,11 +2,11 @@
 exp_name: stgan
 mode: train
 cuda: true
-ngpu: 2
+ngpu: 1
 
 # data
 dataset: celeba
-data_root: /root/datasets/CelebA/
+data_root: /unzipped/celeba_dataset/data_root
 crop_size: 178
 image_size: 128
 
