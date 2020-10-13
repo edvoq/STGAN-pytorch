@@ -9,7 +9,7 @@ from PIL import Image
 def make_dataset(root, mode, selected_attrs):
     assert mode in ['train', 'val', 'test']
     lines = [line.rstrip() for line in open(os.path.join(root, 'anno', 'list_attr_celeba.txt'), 'r')]
-    all_attr_names = lines[1].split()
+    all_attr_names = lines[0].split()
     attr2idx = {}
     idx2attr = {}
     for i, attr_name in enumerate(all_attr_names):
@@ -32,7 +32,7 @@ def make_dataset(root, mode, selected_attrs):
         label = []
         for attr_name in selected_attrs:
             idx = attr2idx[attr_name]
-            label.append(values[idx] == '1')
+            label.append(values[idx-1] == '1')
         items.append([filename, label])
     return items
 
